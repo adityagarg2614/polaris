@@ -8,7 +8,7 @@ import {
   SignedOut,
   UserButton,
 } from '@clerk/nextjs'
-
+import {dark} from '@clerk/themes'
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
@@ -38,7 +38,11 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${plexMono.variable} antialiased`}
       >
-      <ClerkProvider>
+      <ClerkProvider
+      appearance={{
+        theme: dark,
+      }}
+      >
         <ThemeProvider
         attribute="class"
         defaultTheme="dark"
