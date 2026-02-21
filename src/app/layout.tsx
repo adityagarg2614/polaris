@@ -10,6 +10,7 @@ import {
 } from '@clerk/nextjs'
 import {dark} from '@clerk/themes'
 import { ThemeProvider } from "@/components/theme-provider";
+import { ConvexClientProvider } from "@/components/convex-client-provider";
 import "./globals.css";
 
 const inter = Inter({
@@ -49,6 +50,7 @@ export default function RootLayout({
         enableSystem
         disableTransitionOnChange
       >
+        <ConvexClientProvider>
         {children}
         <header>
         <SignedOut>
@@ -64,7 +66,7 @@ export default function RootLayout({
         </SignedIn>
 
         </header>
-        
+        </ConvexClientProvider>
 
         </ThemeProvider>
       </ClerkProvider>
