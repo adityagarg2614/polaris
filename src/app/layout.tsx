@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, IBM_Plex_Mono, Inter } from "next/font/google";
 import { Providers } from "@/components/providers";
-import { ThemeProvider } from "@/components/theme-provider";
-import { ConvexClientProvider } from "@/components/convex-client-provider";
 import "./globals.css";
 
 const inter = Inter({

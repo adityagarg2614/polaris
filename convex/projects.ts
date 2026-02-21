@@ -1,6 +1,5 @@
 import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
-import { handler } from "next/dist/build/templates/app-page";
 
 export const create = mutation({
     args:{
