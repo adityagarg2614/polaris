@@ -4,6 +4,8 @@ import { ClerkProvider , SignInButton, SignOutButton, useAuth } from "@clerk/nex
 import { Authenticated, AuthLoading, ConvexReactClient, Unauthenticated } from "convex/react";
 import { ConvexProviderWithClerk} from "convex/react-clerk"
 import { ThemeProvider } from "./theme-provider";
+import { UnauthenticatedView } from "@/features/auth/components/unauthenticated_view";
+import { AuthLoadingView } from "@/features/auth/components/auth-loading-view";
 
 
 
@@ -24,12 +26,11 @@ export const Providers = ({children}: { children: React.ReactNode}) => {
         </Authenticated>
 
         <Unauthenticated>
-          <SignInButton/>
-          <SignOutButton/>
+            <UnauthenticatedView/>
         </Unauthenticated>
 
         <AuthLoading>
-            Auth Loading
+           <AuthLoadingView/>
         </AuthLoading>
         </ThemeProvider>
             </ConvexProviderWithClerk>
