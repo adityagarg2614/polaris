@@ -85,16 +85,16 @@ export const TreeItemWrapper = ({
             Enter
           </ContextMenuShortcut>
         </ContextMenuItem>
-         <ContextMenuItem 
+        <ContextMenuItem 
           onClick={onDelete}
           className="text-sm"
         >
           Delete Permanently
-          <ContextMenuShortcut>
+        <ContextMenuShortcut>
             ⌘Backspace
-          </ContextMenuShortcut>
-        </ContextMenuItem>
-      </ContextMenuContent>
+        </ContextMenuShortcut>
+    </ContextMenuItem>
+    </ContextMenuContent>
     </ContextMenu>
   );
 };
