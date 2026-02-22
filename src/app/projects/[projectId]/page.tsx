@@ -8,11 +8,7 @@ const ProjectIdPage = async({
 
     const {projectId} = await params
 
-  return (
-    <div>
-      ProjectId
-    </div>
-  )
+  return <ProjectIdView projectId={projectId}/>
 }
 
 export default ProjectIdPage
