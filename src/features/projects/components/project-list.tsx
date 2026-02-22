@@ -107,16 +107,16 @@ const ProjectItem = ({ data }: { data: Doc<"projects"> }) => {
 };
 
 const ProjectList = ({ onViewAll }: ProjectsListProps) => {
-  // Fetch up to 6 projects
-  const projects = useProjectsPartial(6);
+    // Fetch up to 6 projects
+    const projects = useProjectsPartial(6);
 
-  // While loading, projects will be undefined
-  if (projects === undefined) {
-    return <Spinner className="size-4 text-ring" />;
-  }
+    // While loading, projects will be undefined
+    if (projects === undefined) {
+        return <Spinner className="size-4 text-ring" />;
+    }
 
-  // First is most recent, remaining are the rest
-  const [mostRecent, ...rest] = projects;
+    // First is most recent, remaining are the rest
+    const [mostRecent, ...rest] = projects;
 
   return (
     <div className="flex flex-col gap-4">
