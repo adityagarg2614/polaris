@@ -73,7 +73,7 @@ const ContinueCard = ({ data }: { data: Doc<"projects"> }) => {
             </div>
 
             {/* Arrow moves slightly on hover */}
-            <ArrowRightIcon className="size-4 text-muted-foreground group-hover:translate-x-0.5 transition-transform" />
+            <ArrowRightIcon className="size-4 text-muted-foreground group-hover:translate-x-1 transition-transform" />
           </div>
 
           <span className="text-sm text-muted-foreground">

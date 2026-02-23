@@ -7,8 +7,6 @@ const [loading, setLoading] = useState(false)
 
   return (
     <div className='p-8 space-x-4'>
-
-      
     </div>
   )
 }

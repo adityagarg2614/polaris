@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ConversationSidebar = () => {
+const CodeEditor = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const ConversationSidebar = () => {
   )
 }
 
-export default ConversationSidebar
+export default CodeEditor

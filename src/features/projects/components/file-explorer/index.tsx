@@ -20,18 +20,17 @@ export const FileExplorer = ({
 }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [collapseKey, setCollapseKey] = useState(0);
-  const [creating, setCreating] = useState<"file" | "folder" | null>(
-    null
-  );
+  const [creating, setCreating] = useState<"file" | "folder" | null>(null);
 
   const project = useProject(projectId);
   const rootFiles = useFolderContents({
     projectId,
     enabled: isOpen,
   });
-
   const createFile = useCreateFile();
   const createFolder = useCreateFolder();
+
+
   const handleCreate = (name: string) => {
     setCreating(null);
     if (creating === "file") {

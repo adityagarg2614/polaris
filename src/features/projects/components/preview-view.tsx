@@ -9,15 +9,14 @@ import {
   RefreshCwIcon,
 } from "lucide-react";
 
-import { useWebContainer } from "@/features/preview/hooks/use-webcontainer";
-import { PreviewSettingsPopover } from "@/features/preview/components/preview-settings-popover";
-import { PreviewTerminal } from "@/features/preview/components/preview-terminal";
-
 import { Button } from "@/components/ui/button";
 
 import { useProject } from "../hooks/use-projects";
 
 import { Id } from "../../../../convex/_generated/dataModel";
+import { useWebContainer } from "@/features/preview/hooks/use-webcontainer";
+import { PreviewSettingsPopover } from "@/features/preview/components/preview-settings-popover";
+import { PreviewTerminal } from "@/features/preview/components/preview-terminal";
 
 export const PreviewView = ({ projectId }: { projectId: Id<"projects"> }) => {
   const project = useProject(projectId);
