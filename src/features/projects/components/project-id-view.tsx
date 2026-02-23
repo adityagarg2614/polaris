@@ -11,8 +11,10 @@ import { FileExplorer } from "./file-explorer";
 import { Id } from "../../../../convex/_generated/dataModel";
 
 import { ExportPopover } from "./export-popover";
-import { PreviewView } from "./preview-view";
+
 import { EditorView } from "@/features/editor/components/editor-view";
+import { PreviewView } from "./preview-view";
+
 
 
 const MIN_SIDEBAR_WIDTH = 200;

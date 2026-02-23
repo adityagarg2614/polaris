@@ -13,17 +13,17 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-import {
+
+import { Id } from "../../../../convex/_generated/dataModel";
+import {   
   PromptInput,
   PromptInputBody,
   PromptInputFooter,
   PromptInputSubmit,
   PromptInputTextarea,
   PromptInputTools,
-  type PromptInputMessage,
-} from "@/components/ai-elements/prompt-input";
-
-import { Id } from "../../../../convex/_generated/dataModel";
+  type PromptInputMessage, }
+   from "@/components/ai-elements/prompt-input";
 
 interface NewProjectDialogProps {
   open: boolean;
