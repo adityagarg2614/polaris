@@ -5,13 +5,14 @@ import { Allotment } from "allotment";
 import { FaGithub } from "react-icons/fa";
 
 import { cn } from "@/lib/utils";
-import { EditorView } from "@/features/editor/components/editor-view";
+
 
 import { FileExplorer } from "./file-explorer";
 import { Id } from "../../../../convex/_generated/dataModel";
 
 import { ExportPopover } from "./export-popover";
 import { PreviewView } from "./preview-view";
+import { EditorView } from "@/features/editor/components/editor-view";
 
 
 const MIN_SIDEBAR_WIDTH = 200;

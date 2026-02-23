@@ -29,6 +29,7 @@ export const ProjectIdLayout = ({
             DEFAULT_CONVERSATION_SIDEBAR_WIDTH,
             DEFAULT_MAIN_SIZE
           ]}
+
         >
           <Allotment.Pane
             snap

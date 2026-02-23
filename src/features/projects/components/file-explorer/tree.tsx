@@ -21,6 +21,7 @@ import { CreateInput } from "./create-input";
 import { Doc, Id } from "../../../../../convex/_generated/dataModel";
 import { RenameInput } from "./rename-input";
 import { TreeItemWrapper } from "./tree-item-wrapper";
+import { useEditor } from "@/features/editor/hooks/use-editor";
 
 export const Tree = ({
   item,
