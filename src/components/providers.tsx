@@ -27,7 +27,7 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
           disableTransitionOnChange
         >
           <Authenticated> 
-            <TooltipProvider delayDuration={0}>{children}</TooltipProvider></Authenticated>
+          <TooltipProvider delayDuration={0}>{children}</TooltipProvider></Authenticated>
 
           <Unauthenticated>
             <UnauthenticatedView />
