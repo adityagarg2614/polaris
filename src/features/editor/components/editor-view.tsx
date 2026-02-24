@@ -8,7 +8,8 @@ import { TopNavigation } from "./top-navigation";
 import { FileBreadcrumbs } from "./file-breadcrumbs";
 import { Id } from "../../../../convex/_generated/dataModel";
 import { AlertTriangleIcon } from "lucide-react";
-import CodeEditor from "./code-editor";
+import { CodeEditor } from "./code-editor";
+
 
 const DEBOUNCE_MS = 1500;
 
@@ -49,9 +50,20 @@ export const EditorView = ({ projectId }: { projectId: Id<"projects"> }) => {
           </div>
         )}
         {isActiveFileText && (
-          <CodeEditor
-           
-          />
+        <CodeEditor
+          key={activeFile._id}
+          fileName={activeFile.name}
+          initialValue={activeFile.content}
+          onChange={(content: string) => {
+            if (timeoutRef.current) {
+              clearTimeout(timeoutRef.current);
+            }
+
+            timeoutRef.current = setTimeout(() => {
+              updateFile({ id: activeFile._id, content });
+            }, DEBOUNCE_MS);
+          }}
+        />
         )}
         {isActiveFileBinary && (
           <div className="size-full flex items-center justify-center">
