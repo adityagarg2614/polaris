@@ -13,11 +13,8 @@ import { CreateInput } from "./create-input"
 import { LoadingRow } from "./loading-row"
 import { Tree } from "./tree"
 
-export const FileExplorer = ({ 
-  projectId
-}: { 
-  projectId: Id<"projects">
-}) => {
+export const FileExplorer = ({ projectId }: { projectId: Id<"projects"> }) => {
+
   const [isOpen, setIsOpen] = useState(true);
   const [collapseKey, setCollapseKey] = useState(0);
   const [creating, setCreating] = useState<"file" | "folder" | null>(null);
@@ -32,7 +29,9 @@ export const FileExplorer = ({
 
 
   const handleCreate = (name: string) => {
-    setCreating(null);
+    console.log(creating)
+    setCreating(null);  //Doubt 
+    console.log(creating)
     if (creating === "file") {
       createFile({
         projectId,
