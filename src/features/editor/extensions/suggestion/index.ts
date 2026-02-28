@@ -9,8 +9,8 @@ import {
   } from "@codemirror/view";
 import { StateEffect, StateField } from "@codemirror/state";
 import { fetcher } from "./fetcher";
-  
-  
+
+
   // StateEffect: A way to send "messages" to update state.
   // We define one effect type for setting the suggestion text.
   const setSuggestionEffect = StateEffect.define<string | null>();

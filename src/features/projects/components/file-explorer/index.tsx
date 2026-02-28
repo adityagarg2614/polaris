@@ -29,9 +29,7 @@ export const FileExplorer = ({ projectId }: { projectId: Id<"projects"> }) => {
 
 
   const handleCreate = (name: string) => {
-    console.log(creating)
-    setCreating(null);  //Doubt 
-    console.log(creating)
+    setCreating(null);  //Because React state updates are async and batched. setCreating(null) schedules an update for the next render; it does not change the creating variable inside the current function call.
     if (creating === "file") {
       createFile({
         projectId,
@@ -113,7 +111,7 @@ export const FileExplorer = ({ projectId }: { projectId: Id<"projects"> }) => {
                 onSubmit={handleCreate}
                 onCancel={() => setCreating(null)}
               />
-            )}
+            )} 
             {rootFiles?.map((item) => (
               <Tree
                 key={`${item._id}-${collapseKey}`}
