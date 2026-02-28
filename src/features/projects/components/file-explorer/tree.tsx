@@ -56,7 +56,7 @@ export const Tree = ({
   });
 
   const handleRename = (newName: string) => {
-    setIsRenaming(false);
+     setIsRenaming(false);
 
     if (newName === item.name) {
       return;
@@ -68,7 +68,7 @@ export const Tree = ({
   const handleCreate = (name: string) => {
     setCreating(null);
 
-    if (creating === "file") {
+  if (creating === "file") {
       createFile({
         projectId,
         name,
@@ -82,6 +82,8 @@ export const Tree = ({
         parentId: item._id,
       });
     }
+
+   
   };
 
   const startCreating =(type: "file" | "folder") => {

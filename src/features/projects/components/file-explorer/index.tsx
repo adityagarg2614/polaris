@@ -13,11 +13,8 @@ import { CreateInput } from "./create-input"
 import { LoadingRow } from "./loading-row"
 import { Tree } from "./tree"
 
-export const FileExplorer = ({ 
-  projectId
-}: { 
-  projectId: Id<"projects">
-}) => {
+export const FileExplorer = ({ projectId }: { projectId: Id<"projects"> }) => {
+
   const [isOpen, setIsOpen] = useState(true);
   const [collapseKey, setCollapseKey] = useState(0);
   const [creating, setCreating] = useState<"file" | "folder" | null>(null);
@@ -32,7 +29,7 @@ export const FileExplorer = ({
 
 
   const handleCreate = (name: string) => {
-    setCreating(null);
+    setCreating(null);  //Because React state updates are async and batched. setCreating(null) schedules an update for the next render; it does not change the creating variable inside the current function call.
     if (creating === "file") {
       createFile({
         projectId,
@@ -114,7 +111,7 @@ export const FileExplorer = ({
                 onSubmit={handleCreate}
                 onCancel={() => setCreating(null)}
               />
-            )}
+            )} 
             {rootFiles?.map((item) => (
               <Tree
                 key={`${item._id}-${collapseKey}`}

@@ -39,11 +39,8 @@ const Tab = ({
   );
 };
 
-export const ProjectIdView = ({ 
-  projectId
-}: { 
-  projectId: Id<"projects">
-}) => {
+export const ProjectIdView = ({ projectId }: { projectId: Id<"projects"> }) => {
+  
   const [activeView, setActiveView] = useState<"editor" | "preview">("editor");
 
   return (
