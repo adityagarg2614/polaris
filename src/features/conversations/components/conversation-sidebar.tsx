@@ -98,6 +98,7 @@ export const ConversationSidebar = ({
       setInput("");
       return;
     }
+    setInput("");
 
     let conversationId = activeConversationId;
 
@@ -120,7 +121,7 @@ export const ConversationSidebar = ({
       toast.error("Message failed to send");
     }
 
-    setInput("");
+    
   }
 
   return (

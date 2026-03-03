@@ -1,4 +1,4 @@
-import { createAgent, anthropic, createNetwork } from '@inngest/agent-kit';
+import { createAgent, gemini, createNetwork } from '@inngest/agent-kit';
 
 import { inngest } from "@/inngest/client";
 import { Id } from "../../../../convex/_generated/dataModel";
@@ -10,14 +10,14 @@ import {
   TITLE_GENERATOR_SYSTEM_PROMPT
 } from "./constants";
 import { DEFAULT_CONVERSATION_TITLE } from "../constants";
-// import { createReadFilesTool } from './tools/read-files';
-// import { createListFilesTool } from './tools/list-files';
-// import { createUpdateFileTool } from './tools/update-file';
-// import { createCreateFilesTool } from './tools/create-files';
-// import { createCreateFolderTool } from './tools/create-folder';
-// import { createRenameFileTool } from './tools/rename-file';
-// import { createDeleteFilesTool } from './tools/delete-files';
-// import { createScrapeUrlsTool } from './tools/scrape-urls';
+import { createReadFilesTool } from './tools/read-files';
+import { createListFilesTool } from './tools/list-files';
+import { createUpdateFileTool } from './tools/update-file';
+import { createCreateFilesTool } from './tools/create-files';
+import { createCreateFolderTool } from './tools/create-folder';
+import { createRenameFileTool } from './tools/rename-file';
+import { createDeleteFilesTool } from './tools/delete-files';
+import { createScrapeUrlsTool } from './tools/scrape-urls';
 
 interface MessageEvent {
   messageId: Id<"messages">;
@@ -117,9 +117,9 @@ export const processMessage = inngest.createFunction(
        const titleAgent = createAgent({
         name: "title-generator",
         system: TITLE_GENERATOR_SYSTEM_PROMPT,
-        model: anthropic({
-          model: "claude-3-5-haiku-20241022",
-          defaultParameters: { temperature: 0, max_tokens: 50 },
+        model: gemini({
+          model:"gemini-2.5-flash",
+          apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY,
         }),
        });
 
@@ -155,19 +155,19 @@ export const processMessage = inngest.createFunction(
       name: "polaris",
       description: "An expert AI coding assistant",
       system: systemPrompt,
-       model: anthropic({
-        model: "claude-opus-4-20250514",
-        defaultParameters: { temperature: 0.3, max_tokens: 16000 }
+       model: gemini({
+        model: "gemini-2.5-flash",
+        apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY,
        }),
        tools: [
-        // createListFilesTool({ internalKey, projectId }),
-        // createReadFilesTool({ internalKey }),
-        // createUpdateFileTool({ internalKey }),
-        // createCreateFilesTool({ projectId, internalKey }),
-        // createCreateFolderTool({ projectId, internalKey }),
-        // createRenameFileTool({ internalKey }),
-        // createDeleteFilesTool({ internalKey }),
-        // createScrapeUrlsTool(),
+        createListFilesTool({ internalKey, projectId }),
+        createReadFilesTool({ internalKey }),
+        createUpdateFileTool({ internalKey }),
+        createCreateFilesTool({ projectId, internalKey }),
+        createCreateFolderTool({ projectId, internalKey }),
+        createRenameFileTool({ internalKey }),
+        createDeleteFilesTool({ internalKey }),
+        createScrapeUrlsTool(),
        ],
     });
 
