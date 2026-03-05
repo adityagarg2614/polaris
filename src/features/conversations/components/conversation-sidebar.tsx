@@ -119,9 +119,7 @@ export const ConversationSidebar = ({
       });
     } catch {
       toast.error("Message failed to send");
-    }
-
-    
+    }    
   }
 
   return (
