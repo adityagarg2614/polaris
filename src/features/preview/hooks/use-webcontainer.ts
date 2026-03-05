@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { WebContainer } from "@webcontainer/api";
 
+import { 
+  buildFileTree,
+  getFilePath
+} from "@/features/preview/utils/file-tree";
 import { useFiles } from "@/features/projects/hooks/use-files";
-
-import { api } from "../../../../convex/_generated/api";
 import { Id } from "../../../../convex/_generated/dataModel";
-import { buildFileTree, getFilePath } from "../utils/file-tree";
 
 // Singleton WebContainer instance
 let webcontainerInstance: WebContainer | null = null;
