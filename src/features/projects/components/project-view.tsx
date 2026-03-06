@@ -12,8 +12,6 @@ import { Kbd } from "@/components/ui/kbd";
 import { ProjectsCommandDialog } from "./projects-command-dialog";
 import { ImportGithubDialog } from "./import-github-dialog";
 import { NewProjectDialog } from "./new-project-dialog";
-import {adjectives, animals , colors, uniqueNamesGenerator} from 'unique-names-generator'
-import { useCreateProject } from "../hooks/use-projects";
 import ProjectList from "./project-list";
 
 const font = Poppins({
@@ -21,7 +19,7 @@ const font = Poppins({
   weight: ["400", "500", "600", "700"],
 })
 
-export const ProjectView = () => {
+export const ProjectsView = () => {
   const [commandDialogOpen, setCommandDialogOpen] = useState(false);
   const [importDialogOpen, setImportDialogOpen] = useState(false);
   const [newProjectDialogOpen, setNewProjectDialogOpen] = useState(false);
@@ -47,7 +45,7 @@ export const ProjectView = () => {
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
-  const createProjects = useCreateProject();
+
 
   return (
     <>
@@ -84,18 +82,7 @@ export const ProjectView = () => {
             <div className="grid grid-cols-2 gap-2">
               <Button
                 variant="outline"
-                onClick={() => {
-                  const projectName = uniqueNamesGenerator({
-                    dictionaries: [adjectives, animals , colors],
-                    separator:"-",
-                    length: 3,
-                  
-                  })
-                  
-                  createProjects({
-                    name:projectName
-                  })
-                }}
+                onClick={() => setNewProjectDialogOpen(true)}
                 className="h-full items-start justify-start p-4 bg-background border flex flex-col gap-6 rounded-none"
               >
                 <div className="flex items-center justify-between w-full">
